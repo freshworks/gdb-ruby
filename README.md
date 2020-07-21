@@ -38,6 +38,12 @@ To get callstack of all threads:
 (gdb) thread apply all ruby_bt
 ```
 
+To get callstack of "current" Ruby thread, one holding GVL lock:
+
+```
+(gdb) ruby_bt_curr
+```
+
 To print local variables:
 
 ```
@@ -53,6 +59,6 @@ To print global variables:
 To print ruby variable from some other variable (like Ruby VM C variable etc, in this case 'klass' local variable in C)
 
 ```
-python print_ruby_value(gdb.parse_and_eval('klass'))
+(gdb) python print_ruby_value(gdb.parse_and_eval('klass'))
 ```
 
